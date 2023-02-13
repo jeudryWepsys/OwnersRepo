@@ -1,5 +1,4 @@
-﻿using RI.Novus.Core.Asegurados;
-using Triplex.Validations;
+﻿using Triplex.Validations;
 
 namespace Persistence.Models;
 

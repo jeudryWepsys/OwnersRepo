@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata;
-using RI.Novus.Core.Asegurados;
 using RI.Novus.Core.Boundaries.Persistence;
 using RI.Novus.Core.Inmovable.Properties;
 using WebApiExample.ViewModels;

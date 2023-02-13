@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RI.Novus.Core.Asegurados;
 using RI.Novus.Core.Boundaries.Persistence;
 using RI.Novus.Core.Inmovable.Owners;
-using RI.Novus.Core.Inmovable.Properties;
 using WebApiExample.ViewModels;
 
 namespace WebApiExample.Controllers;

@@ -1,6 +1,4 @@
 ﻿using RI.Novus.Core.Boundaries.Persistence;
-using RI.Novus.Core.Inmovable.Owners;
-using RI.Novus.Core.Inmovable.Properties;
 
 namespace RI.Novus.Core.Inmovable.Properties;
 

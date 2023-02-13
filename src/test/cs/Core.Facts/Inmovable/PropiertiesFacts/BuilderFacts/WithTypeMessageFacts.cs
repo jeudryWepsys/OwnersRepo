@@ -1,6 +1,4 @@
-﻿using System;
-using RI.Novus.Core.Inmovable.Properties;
-using static RI.Novus.Core.Facts.Inmovable.PropiertiesFacts.CreateBuilderHelper;
+﻿using static RI.Novus.Core.Facts.Inmovable.PropiertiesFacts.CreateBuilderHelper;
 using Type = RI.Novus.Core.Inmovable.Properties.Type;
 
 namespace RI.Novus.Core.Facts.Inmovable.PropiertiesFacts.BuilderFacts;

@@ -1,8 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Optional.Unsafe;
-using Persistence.Models;
-using RI.Novus.Core.Inmovable.Owners;
+﻿using Optional.Unsafe;
 using RI.Novus.Core.Inmovable.Properties;
 using Triplex.Validations;
 using Type = RI.Novus.Core.Inmovable.Properties.Type;

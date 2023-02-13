@@ -2,8 +2,6 @@
 using Persistence.Models;
 using RI.Novus.Core.Boundaries.Persistence;
 using RI.Novus.Core.Inmovable.Owners;
-using RI.Novus.Core.Inmovable.Properties;
-using Triplex.Validations;
 
 namespace Persistence;
 

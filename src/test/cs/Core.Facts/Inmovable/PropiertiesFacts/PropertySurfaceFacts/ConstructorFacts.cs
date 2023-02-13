@@ -1,6 +1,5 @@
 using RI.Novus.Core.Inmovable.Owners;
 using RI.Novus.Core.Inmovable.Properties;
-using Triplex.ProtoDomainPrimitives.Numerics;
 
 namespace RI.Novus.Core.Facts.Inmovable.PropiertiesFacts.PropertySurfaceFacts;
 

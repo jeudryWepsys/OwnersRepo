@@ -1,5 +1,4 @@
-﻿using RI.Novus.Core.Inmovable.Owners;
-using RI.Novus.Core.Inmovable.Properties;
+﻿using RI.Novus.Core.Inmovable.Properties;
 using Id = RI.Novus.Core.Inmovable.Properties.Id;
 using Type = RI.Novus.Core.Inmovable.Properties.Type;
 

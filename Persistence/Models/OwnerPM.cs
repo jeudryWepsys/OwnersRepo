@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 using RI.Novus.Core.Inmovable.Owners;
-using RI.Novus.Core.Inmovable.Properties;
 using Triplex.Validations;
 
 namespace Persistence.Models;
