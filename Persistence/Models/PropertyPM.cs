@@ -86,8 +86,8 @@ public sealed class PropertyPM
             .WithOwnerId(OwnerId)
             .WithSurface(RI.Novus.Core.Inmovable.Properties.Surface.From(Surface))
             .WithType(Type)
-            .WithArea(RI.Novus.Core.Inmovable.Properties.Area.From(Area))
-            .WithRegion(RI.Novus.Core.Inmovable.Properties.Region.From(Region))
+            .WithArea(RI.Novus.Core.Inmovable.Properties.Area.From((decimal)Area))
+            .WithRegion(RI.Novus.Core.Inmovable.Properties.Region.From((decimal)Region))
             .Build();
     }
     

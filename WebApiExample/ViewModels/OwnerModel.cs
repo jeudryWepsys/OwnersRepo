@@ -1,5 +1,4 @@
-﻿using Optional.Unsafe;
-using RI.Novus.Core.Inmovable.Owners;
+﻿using RI.Novus.Core.Inmovable.Owners;
 using RI.Novus.Core.Inmovable.Properties;
 using Triplex.Validations;
 
@@ -38,7 +37,7 @@ public sealed class OwnerModel
     /// <summary>
     /// Indicates owner's properties.
     /// </summary>
-    public ICollection<PropertyModel> Properties { get; set; }
+    public IEnumerable<PropertyModel> Properties { get; set; }
 
     /// <summary>
     /// Converts to Owner entity.
@@ -46,16 +45,16 @@ public sealed class OwnerModel
     /// <returns>An instance of <see cref="RI.Novus.Core.Asegurados.Asegurado"/></returns>
     public Owner ToEntity()
     {
-        var ownerId = Guid.NewGuid();
+        Guid ownerId = Guid.NewGuid();
         
-        var propertie = Properties.Select(x => new Property.Builder()
+        IEnumerable<Property> propertie = Properties.Select(x => new Property.Builder() 
             .WithSurface(Surface.From(Properties.Select(x => x.Surface).FirstOrDefault()))
             .WithType(Properties.Select(x => x.Type).FirstOrDefault())
-            .WithArea(Area.From(Properties.Select(x => x.Area).FirstOrDefault()))
-            .WithRegion(Region.From(Properties.Select(x => x.Region).FirstOrDefault()))
+            .WithArea(Area.From(Properties.Select(x => x.Area).FirstOrDefault() ?? 0)) 
+            .WithRegion(Region.From(Properties.Select(x => x.Region).FirstOrDefault() ?? 0))
             .WithOwnerId(ownerId)
             .Build());
-        
+
         return new Owner.Builder()
             .WithId(RI.Novus.Core.Inmovable.Owners.Id.From(ownerId))
             .WithName(RI.Novus.Core.Inmovable.Owners.Name.From(Name))
@@ -63,7 +62,7 @@ public sealed class OwnerModel
             .WithCreatedDate(RI.Novus.Core.Inmovable.Owners.CreatedDate.Now())
             .WithCodia(RI.Novus.Core.Inmovable.Owners.Codia.From(Codia))
             .WithProperties(propertie)
-            .Build();   
+            .Build();
     } 
     
     /// <summary>
@@ -82,15 +81,7 @@ public sealed class OwnerModel
             IdentificationNumber = owner.IdentificationNumber.Value,
             CreatedDate = owner.CreatedDate.AsPrimitive,
             Codia = owner.Codia.AsPrimitive,
-            Properties = owner.Properties.Select(x => new PropertyModel
-            {
-                Id = x.Id.Value,
-                Surface = x.Surface.Value,
-                Type = x.Type,
-                Area = x.Area.ValueOrDefault().Value,
-                Region = x.Region.ValueOrDefault().Value,
-                OwnerId = x.OwnerId
-            }).ToList()
+            Properties = owner.Properties.Select(PropertyModel.FromEntity).ToList()
         };
     }
 }

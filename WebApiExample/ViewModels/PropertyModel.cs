@@ -33,12 +33,12 @@ public sealed class PropertyModel
     /// <summary>
     /// Gets or sets the area.
     /// </summary>
-    public decimal Area { get; set; }
+    public decimal? Area { get; set; }
     
     /// <summary>
     /// Gets or sets the region.
     /// </summary>
-    public decimal Region { get; set; }
+    public decimal? Region { get; set; }
     
     /// <summary>
     /// Converts to Property entity.
@@ -46,13 +46,16 @@ public sealed class PropertyModel
     /// <returns>An instance of <see cref="RI.Novus.Core.Asegurados.Asegurado"/></returns>
     public Property ToEntity()
     {
-        return new Property.Builder()
+        var builder = new Property.Builder()
             .WithOwnerId(OwnerId)
             .WithSurface(RI.Novus.Core.Inmovable.Properties.Surface.From(Surface))
-            .WithType(Type)
-            .WithArea(RI.Novus.Core.Inmovable.Properties.Area.From(Area))
-            .WithRegion(RI.Novus.Core.Inmovable.Properties.Region.From(Region))
-            .Build(); 
+            .WithType(Type);
+        if(Area.HasValue)
+            builder.WithArea(RI.Novus.Core.Inmovable.Properties.Area.From(Area.Value));
+        if(Region.HasValue)
+            builder.WithRegion(RI.Novus.Core.Inmovable.Properties.Region.From(Region.Value));
+
+        return builder.Build();
     }
     
     /// <summary>

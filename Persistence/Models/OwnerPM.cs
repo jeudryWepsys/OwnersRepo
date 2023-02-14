@@ -67,14 +67,13 @@ public sealed class OwnerPM
     /// Indicates owner db properties.
     /// </summary>
     [NotMapped] 
-    public List<PropertyPM> Properties { get; set; } 
+    public IList<PropertyPM> Properties { get; set; } 
     
     /// <summary>
     /// Converts a model to an entity.
     /// </summary>
-    /// <param name="properties">Represents the owner properties.</param>
     /// <returns></returns>
-    public Owner ToEntity(List<PropertyPM> properties)
+    public Owner ToEntity()
     {
         return new Owner.Builder()
             .WithId(RI.Novus.Core.Inmovable.Owners.Id.From(Id))
@@ -82,7 +81,7 @@ public sealed class OwnerPM
             .WithIdentificationNumber(RI.Novus.Core.Inmovable.Owners.IdentificationNumber.From(IdentificationNumber))
             .WithCreatedDate(RI.Novus.Core.Inmovable.Owners.CreatedDate.From(CreatedDate))
             .WithCodia(RI.Novus.Core.Inmovable.Owners.Codia.From(Codia))
-            .WithProperties(properties.Select(p => p.ToEntity()).ToList())
+            .WithProperties(Properties.Select(i => i.ToEntity()).ToList())
             .Build();
     }
     

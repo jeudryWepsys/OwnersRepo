@@ -1,6 +1,6 @@
 ﻿namespace RI.Novus.Core.Asegurados;
 
-/// <summary>Form unique ID.</summary>
+/// <summary>Asegurado's unique ID.</summary>
 public sealed class Id : AbstractGuidBasedIdPrimitive
 {
     /// <summary>Creates a new instance with a random <see cref="Guid"/>.</summary>

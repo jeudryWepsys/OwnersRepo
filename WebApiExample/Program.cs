@@ -77,7 +77,7 @@ public static class Program
     private static void AddRepositories(WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IAseguradosRepositoryDummy, AseguradosRepositoryDummy>();
-        builder.Services.AddScoped<IOwnerRepositoryDummy, OwnerRepositoryDummy>();
-        builder.Services.AddScoped<IPropertyRepositoryDummy, PropertyRepositoryDummy>();
+        builder.Services.AddScoped<IOwnerRepository, OwnerRepository>();
+        builder.Services.AddScoped<IPropertyRepositoryDummy, PropertyRepository>();
     }
 }

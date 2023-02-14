@@ -31,7 +31,7 @@ public sealed class AseguradosRepositoryDummy : IAseguradosRepositoryDummy
     /// <inheritdoc />
     public void Save(RI.Novus.Core.Asegurados.Asegurado asegurado)
     {
-        var aseguradoDatabaseModel = Asegurado.FromEntity(asegurado);
+        Asegurado aseguradoDatabaseModel = Asegurado.FromEntity(asegurado);
         
         _asegurados.Add(aseguradoDatabaseModel);
     }

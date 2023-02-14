@@ -6,7 +6,7 @@
 public sealed class Age : AbstractPositiveIntegerPrimitive
 {
     private static readonly PositiveInteger MinValue = new(1);
-    private static readonly PositiveInteger MaxValue = new(int.MaxValue);
+    private static readonly PositiveInteger MaxValue = new(130);
 
     /// <summary>
     ///  Validates input and sets the corresponding property.

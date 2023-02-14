@@ -1,6 +1,6 @@
 ﻿namespace RI.Novus.Core.Inmovable.Owners;
 
-/// <summary>Form unique ID.</summary>
+/// <summary>Owner's unique ID.</summary>
 public sealed class Id : AbstractGuidBasedIdPrimitive
 {
     /// <summary>Creates a new instance with a random <see cref="Guid"/>.</summary>

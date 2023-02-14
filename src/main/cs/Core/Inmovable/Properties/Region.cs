@@ -8,7 +8,7 @@ public sealed class Region : ICoreDomainPrimitive<decimal>
     /// lines `private const decimal MinValue = 0.01M; and MaxValue.
     /// </summary>
 #pragma warning disable CA1802 //Field 'xxx' is 'readonly' but initialized with constant value. Use 'const' instead.
-    private static readonly decimal MinValue = 0.01M;
+    private static readonly decimal MinValue = 0;
     private static readonly decimal MaxValue = 99_999M;
 
 #pragma warning restore CA1802 //Field 'xxx' is 'readonly' but initialized with constant value. Use 'const' instead.

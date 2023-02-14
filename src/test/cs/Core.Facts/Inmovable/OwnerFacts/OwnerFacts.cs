@@ -12,7 +12,7 @@ namespace RI.Novus.Core.Facts.Inmovable.OwnerFacts;
 internal class OwnerFacts
 {
     /// <summary>
-    /// Tests that the <see cref="Owner"/> constructor throws an <see cref="ArgumentNullException"/> when the <see cref="IOwnerRepositoryDummy"/> is null.
+    /// Tests that the <see cref="Owner"/> constructor throws an <see cref="ArgumentNullException"/> when the <see cref="IOwnerRepository"/> is null.
     /// </summary>
     [Test]
      public void When_Using_Persist_With_Null_Repository_Throws_ArgumentNullException()
@@ -25,7 +25,7 @@ internal class OwnerFacts
          int codia = 20;
          ICollection<Property> properties = new List<Property>();
          
-         IOwnerRepositoryDummy? ownerRepositoryDummy = null;
+         IOwnerRepository? ownerRepositoryDummy = null;
          
          var owner = new Owner.Builder()
              .WithId(Id.From(id))
@@ -39,7 +39,7 @@ internal class OwnerFacts
          // Assert
          Assert.That(() =>
          {
-             owner.Persists(ownerRepositoryDummy: ownerRepositoryDummy);
+             owner.Persists(ownerRepository: ownerRepositoryDummy);
          }, Throws.ArgumentNullException);
 
      }

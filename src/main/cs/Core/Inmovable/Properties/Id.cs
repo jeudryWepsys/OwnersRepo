@@ -1,6 +1,6 @@
 ﻿namespace RI.Novus.Core.Inmovable.Properties;
 
-/// <summary>Form unique ID.</summary>
+/// <summary>Property's unique ID.</summary>
 public sealed class Id : AbstractGuidBasedIdPrimitive
 {
     /// <summary>Creates a new instance with a random <see cref="Guid"/>.</summary>

@@ -1,9 +1,7 @@
-﻿using RI.Novus.Core.Boundaries.Persistence;
-
-namespace RI.Novus.Core.Inmovable.Properties;
+﻿namespace RI.Novus.Core.Inmovable.Properties;
 
 /// <summary>
-/// Property (initial dummy class).
+/// Represents a property entity.
 /// </summary>
 public sealed class Property
 {
@@ -18,12 +16,6 @@ public sealed class Property
         Surface = builder.SurfaceOption.ValueOrFailure("Surface is required");
     }
     
-    public void Update(IPropertyRepositoryDummy propertyRepositoryDummy, Guid propertyId)
-    {
-        Arguments.NotNull(propertyRepositoryDummy, nameof(propertyRepositoryDummy));
-        propertyRepositoryDummy.UpdateProperty(propertyId, this);
-    }
-    
     /// <summary>Property's id.</summary>
     public Id Id { get; }
     
@@ -35,13 +27,20 @@ public sealed class Property
     /// <summary>Represents a authentication type</summary>
     public Type Type { get; }
     
+    /// <summary>
+    /// Property's area.
+    /// </summary>
     public Option<Area> Area { get; }
     
+    /// <summary>
+    /// Property's region.
+    /// </summary>
     public Option<Region> Region { get; }
     
+    /// <summary>
+    /// Property's surface.
+    /// </summary>
     public Surface Surface { get; }
-    
-    
 
     /// <summary>
     /// Property's builder.
@@ -115,11 +114,5 @@ public sealed class Property
                 = Arguments.NotNull(surface, nameof(surface)).SomeNotNull());
 
         private new Builder SetProperty(Action setter) => (Builder)base.SetProperty(setter);
-    }
-    
-    public static void Delete(IPropertyRepositoryDummy propertyRepositoryDummy, Guid propertyId)
-    {
-        Arguments.NotNull(propertyRepositoryDummy, nameof(propertyRepositoryDummy));
-        propertyRepositoryDummy.DeleteProperty(propertyId);
     }
 }

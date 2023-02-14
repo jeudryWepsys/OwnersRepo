@@ -5,7 +5,7 @@ using RI.Novus.Core.Inmovable.Properties;
 namespace RI.Novus.Core.Inmovable.Owners;
 
 /// <summary>
-/// Owner (initial dummy class).
+/// Represents the owner entity.
 /// </summary>
 public sealed class Owner
 {
@@ -48,10 +48,38 @@ public sealed class Owner
     /// </summary>
     public IEnumerable<Property> Properties { get; }
     
-    public void Persists(IOwnerRepositoryDummy ownerRepositoryDummy)
+    /// <summary>
+    /// Persists owner and property.
+    /// </summary>
+    /// <param name="ownerRepository">Represents the owner repository.</param>
+    public void Persists(IOwnerRepository ownerRepository)
     {
-        Arguments.NotNull(ownerRepositoryDummy, nameof(ownerRepositoryDummy));
-        ownerRepositoryDummy.Save(this);
+        Arguments.NotNull(ownerRepository, nameof(ownerRepository));
+        State.IsFalse(ownerRepository.Exists(IdentificationNumber), "The given name already exists on database");
+        ownerRepository.Save(this);
+    }
+    
+    /// <summary>
+    /// Delete owner's property.
+    /// </summary>
+    /// <param name="propertyRepositoryDummy">Represents the property repository.</param>
+    /// <param name="propertyId">Represents the property id.</param>
+    public void Delete(IPropertyRepositoryDummy propertyRepositoryDummy, Guid propertyId)
+    {
+        Arguments.NotNull(propertyRepositoryDummy, nameof(propertyRepositoryDummy));
+        propertyRepositoryDummy.Delete(this, propertyId);
+    }
+
+    /// <summary>
+    /// Update owner's property.
+    /// </summary>
+    /// <param name="propertyRepositoryDummy">Represents the property repository.</param>
+    /// <param name="propertyId">Represents the property id.</param>
+    /// <param name="propertyToUpdate"></param>
+    public void Update(IPropertyRepositoryDummy propertyRepositoryDummy, Guid propertyId, Property propertyToUpdate)
+    {
+        Arguments.NotNull(propertyRepositoryDummy, nameof(propertyRepositoryDummy));
+        propertyRepositoryDummy.Update(this, propertyId, propertyToUpdate);
     }
     
     /// <summary>
@@ -141,4 +169,5 @@ public sealed class Owner
         
         private new Builder SetProperty(Action setter) => (Builder)base.SetProperty(setter);
     }
+    
 }

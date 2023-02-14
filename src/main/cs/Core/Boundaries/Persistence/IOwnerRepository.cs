@@ -6,7 +6,7 @@ namespace RI.Novus.Core.Boundaries.Persistence;
 /// <summary>
 /// Provides the contract to provide methods to interact with Owners.
 /// </summary>
-public interface IOwnerRepositoryDummy
+public interface IOwnerRepository
 {
     /// <summary>
     /// Saves owner.
@@ -19,5 +19,7 @@ public interface IOwnerRepositoryDummy
     /// </summary>
     /// <returns></returns>
     ICollection<Owner> Retrieve();
-    
+
+    Owner GetOwnerById(Guid ownerId);
+    bool Exists(IdentificationNumber identificationNumber);
 }
